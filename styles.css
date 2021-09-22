@@ -48,7 +48,8 @@ body {
 
 .placeholder {
   width: 150px;
-  height: 66px;
+  height: 136px;
+  /*padding-bottom: 130px;*/
 }
 
 .start {
@@ -61,4 +62,18 @@ body {
 
 .done {
   background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.hold{
+  /*border: 3px solid #900;*/
+  background: gray;
+  color:#fff
+}
+
+.hide{
+  display: none;
+}
+
+.entered{
+  background: rgba(5,5,5,0.1);
 }
