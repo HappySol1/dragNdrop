@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Drag & Drop | Проект 2</title>
-  </head>
-  <body>
-    <div>
-      <div class="row">
-          <div class="col-header start">Начать</div>
-          <div class="col-header progress">В процессе</div>
-          <div class="col-header done">Готовы</div>
-      </div>
 
-      <div class="row">
-        <div class="placeholder">
-          <div class="item" draggable="true">Перетащи меня</div>
-        </div>
-        <div class="placeholder"></div>
-        <div class="placeholder"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Drag & Drop | Проект 2</title>
+</head>
+
+<body>
+  <div>
+    <div class="row">
+      <div class="col-header start">
+        Начать
+        <div class="start-btn">+</div>
       </div>
-      
+      <div class="col-header progress">В процессе</div>
+      <div class="col-header done">Готовы</div>
     </div>
-  <script src="app.js"></script>
-  </body>
+
+    <div class="row row2">
+      <div class="placeholder placeholder-start">
+        <!-- <div class="item" draggable="true">2Перетащи меня</div> -->
+        <!-- <div class="item" draggable="true">0 Перетащи меня</div> -->
+      </div>
+      <div class="placeholder"></div>
+      <div class="placeholder"></div>
+    </div>
+
+  </div>
+  <script src="app2.js"></script>
+</body>
+
 </html>
