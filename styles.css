@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #e5e5e5;
   display: flex;
   padding-top: 5rem;
@@ -46,14 +46,34 @@ body {
   cursor: grabbing;
 }
 
+.item textarea {
+  width: 100%;
+}
+
 .placeholder {
   width: 150px;
-  height: 136px;
-  /*padding-bottom: 130px;*/
+  /* height: 136px; */
+  padding-bottom: 130px;
 }
 
 .start {
   background: linear-gradient(90deg, #ff85e4 0%, #229efd 179.25%);
+  position: relative;
+}
+.start-btn {
+  user-select: none;
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10%;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
 }
 
 .progress {
@@ -64,16 +84,16 @@ body {
   background: linear-gradient(90deg, #84fab0 0%, #8fd3f4 100%);
 }
 
-.hold{
+.hold {
   /*border: 3px solid #900;*/
   background: gray;
-  color:#fff
+  color: #fff;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
-.entered{
-  background: rgba(5,5,5,0.1);
+.entered {
+  background: rgba(5, 5, 5, 0.1);
 }
