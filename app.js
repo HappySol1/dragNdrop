@@ -1,38 +1,87 @@
-const item = document.querySelector('.item')
-const placeholders = document.querySelectorAll('.placeholder')
+// const item = document.querySelector('.item')
+const placeholder = document.querySelectorAll('.placeholder')
+const PlusBtn = document.querySelector('.start-btn')
+const start = document.querySelector('.placeholder-start')
 
-item.addEventListener('dragstart',dragstart)
-item.addEventListener('dragend',dragend)
+let count = 1
 
-for (const placeholder of placeholders) {
-    placeholder.addEventListener('dragover',dragover)
-    placeholder.addEventListener('dragenter',dragenter)
-    placeholder.addEventListener('dragleave',dragleave)
-    placeholder.addEventListener('drop',dragdrop)
+PlusBtn.addEventListener('click', () => {
+    const prepitem = document.createElement('div')
+    prepitem.classList.add('item')
+    prepitem.classList.add('toDrag')
+    prepitem.setAttribute("draggable", true)
+    prepitem.innerHTML = `${count} Даблклик на меня`
+    count++
+    // const prepitem = document.createElement(div)
+    start.append(prepitem)
+    toDrag(prepitem)
+})
+
+function toDrag(myitem) {
+    myitem.classList.remove('toDrag')
+    myitem.addEventListener('dragstart', dragstart)
+    myitem.addEventListener('dragend', dragend)
+    myitem.addEventListener('dblclick', changetext)
+    // console.log(myitem);
 }
 
-function dragover(e){
-    e.preventDefault()
+let activeItem
+
+// item.addEventListener('dragstart', dragstart)
+// item.addEventListener('dragend', dragend)
+
+for (let i = 0; i < placeholder.length; i++) {
+    placeholder[i].addEventListener('dragover', dragover)
+    placeholder[i].addEventListener('dragenter', dragenter)
+    placeholder[i].addEventListener('dragleave', dragleave)
+    placeholder[i].addEventListener('drop', dragdrop)
 }
 
-function dragenter(e){
+
+function dragstart(e) {
+    setTimeout(() => e.target.classList.add('hide'), 0)
+    activeItem = e.target
+
+}
+
+function dragend(e) {
+    e.target.className = 'item'
+}
+
+function dragover(e) {
+    e.preventDefault();
+}
+
+function dragenter(e) {
     e.target.classList.add('entered')
 }
 
-function dragleave(e){
+function dragleave(e) {
     e.target.classList.remove('entered')
 }
 
-function dragdrop(e){
-    e.target.append(item)
+function dragdrop(e) {
+    e.target.append(activeItem)
+    activeItem.classList.remove('hide')
     e.target.classList.remove('entered')
 }
 
-function dragstart(e){
-    e.target.classList.add('hold')
-    setTimeout(()=>e.target.classList.add('hide'),0)
-}
+function changetext(e) {
+    let input = document.createElement('textarea');
+    input.value = val = e.target.innerHTML
+    e.target.innerHTML = ''
+    e.target.appendChild(input)
+    e.target.remove
 
-function dragend(e){
-    e.target.className = 'item'
+    const bodyClick = document.querySelector('body')
+    bodyClick.addEventListener('click', applyText)
+
+
+    function applyText(a) {
+        if (a.target != input) {
+            e.target.innerHTML = e.target.childNodes[0].value;
+            bodyClick.removeEventListener('click', applyText)
+            // bodyClick.removeEventListener('click', name)
+        }
+    }
 }
